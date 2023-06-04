@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 bg-secondary-theme p-5 shadow-effect">
+      <h3 class="text-center text-theme-primary">
+        {{ formStatus }} Categories
+      </h3>
+      <p class="text-center mb-5">
+        You can add {{ formStatus.toLowerCase() }} categories from here ..!
+      </p>
+      <form
+        #cate="ngForm"
+        class="form-inline text-center"
+        (ngSubmit)="onSubmit(cate)"
+      >
+        <div class="form-group col-md-10">
+          <input
+            type="text"
+            required
+            [ngClass]="{
+              'is-invalid': newCategory.touched && newCategory.invalid
+            }"
+            name="categoryName"
+            [(ngModel)]="categoryName"
+            #newCategory="ngModel"
+            class="form-control shadow-effect w-100"
+            placeholder="Add New Categories"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="newCategory.touched && newCategory.invalid"
+          >
+            Please provide a valid category
+          </div>
+        </div>
+        <div class="col-md-2">
+          <button
+            type="submit"
+            [disabled]="cate.invalid || cate.pristine"
+            class="btn btn-block btn-info mb-2 btn-theme mt-2"
+          >
+            {{ formStatus }} Categories
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row mt-5 mb-5">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="card shadow-effect">
+        <div class="card-body">
+          <table class="table row-border hover">
+            <thead>
+              <th>No</th>
+              <th>Category</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let items of catArray; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ items.data.category }}</td>
+                <td>
+                  <button
+                    class="btn btn-sm btn-warning"
+                    (click)="onEdit(items.id, items.data.category)"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    class="btn btn-sm btn-danger ml-5"
+                    (click)="onDelete(items.id)"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <button class="btn btn-block btn-info btn-theme btn-post" routerLink="/">
+        Back to Dahsboard
+      </button>
+    </div>
+
+    <div class="col-md-3"></div>
+  </div>
+</div>

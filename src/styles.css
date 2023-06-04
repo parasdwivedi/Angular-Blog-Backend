@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=Karla:wght@400;700&family=Roboto+Slab:wght@400;900&family=Roboto:wght@500&display=swap');
+@import "~ngx-toastr/toastr";
+
+:root {
+    --primary-color: #026467;
+    --secondary-color: #E5F5EA;
+    --body-text-color: #596392;
+    --navbar-footer-color: #F9F9F9;
+  }
+
+  body{
+   font-family: 'Roboto', sans-serif;
+   font-size: 12px;
+   color: var(--body-text-color);
+  }
+ 
+  .site-logo {
+    padding: 5px 20px;
+    border-radius: 20px;
+    background-color: rgb(162, 212, 162);
+    color: var(--primary-color);
+    font-size: 1.2em;
+
+}
+
+.bg-theme {
+    background-color: var(--primary-color);
+    margin-top: 50px;
+}
+
+.shadow-effect {
+    border:none;
+    box-shadow: 0px 0px 33px -10px rgb(71, 114, 254, 0.3);
+}
+.btn-theme {
+    margin-top: 10px;
+    height: 50px;
+    width: 100px;
+    border: none;
+    font-size: 15px;
+    background-color: var(--primary-color);
+}
+
+.bg-secondary-theme {
+    background-color: var(--secondary-color);
+
+}
+.text-theme-primary {
+    color: var(--primary-color)
+}
